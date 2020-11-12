@@ -24,7 +24,9 @@ public class Jugador {
 		
 	}
 	
-	
+	public boolean tieneCartas() {
+		return this.getMazoJ().getCantCartas() > 0;
+	}
 
 	
 	public Estrategia getEstrategia() {

@@ -16,7 +16,7 @@ public class Obstinado extends Estrategia {
 			atrSeleccion = this.atrElegido;
 		}
 			
-		return atrSeleccion;
+		return atrSeleccion; // debe retornar el nombre del atributo que elige y no la pocision
 		
 	}
 

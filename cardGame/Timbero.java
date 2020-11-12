@@ -13,7 +13,7 @@ public class Timbero extends Estrategia {
 		//retorna un numero aleatorio entre 0 y 4
 		int atrAleatorio = (int) (Math.random() * (atributos.size()));
 		
-		return atrAleatorio;
+		return atrAleatorio; // debe retornar el nombre del atributo 
 	
 	}
 

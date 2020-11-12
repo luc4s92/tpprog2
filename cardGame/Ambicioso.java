@@ -25,9 +25,9 @@ public class Ambicioso extends Estrategia {
 
 
 		}
+		
 
-
-		return posMayor;
+		return posMayor; //debe retornar el string (nombre) del atributo
 	}
 
 }

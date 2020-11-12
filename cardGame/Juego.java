@@ -13,21 +13,28 @@ public class Juego {
     public void repartirMazo(Jugador j1, Jugador j2, Mazo m, ArrayList<Pocion> pocimas) {
         // Reparte el mazo y saca la carta que no va
         ArrayList<Carta> cartas = m.getCartas();
-        Carta auxCarta = new Carta();
+        
         for (int i = 0; i < cartas.size(); i++) {
             if ((i % 2) == 0) {
                 if (i < pocimas.size()) {
+                	
+                	Carta auxCarta = new Carta();
                     auxCarta = cartas.get(i);
                     auxCarta.agregarPocima(pocimas.get(i));
                     j1.getMazoJ().agregarCarta(auxCarta);
+                    
                 } else {
                     j1.getMazoJ().agregarCarta(cartas.get(i));
                 }
             } else {
+            	
                 if (i < pocimas.size()) {
+                	
+                	Carta auxCarta = new Carta();
                     auxCarta = cartas.get(i);
                     auxCarta.agregarPocima(pocimas.get(i));
                     j2.getMazoJ().agregarCarta(auxCarta);
+                    
                 } else {
                     j2.getMazoJ().agregarCarta(cartas.get(i));
                 }
