@@ -9,11 +9,11 @@ public class Timbero extends Estrategia {
 	}
 
 	@Override
-	public int modoJuego(ArrayList<Atributo> atributos) {
+	public String modoJuego(ArrayList<Atributo> atributos) {
 		//retorna un numero aleatorio entre 0 y 4
 		int atrAleatorio = (int) (Math.random() * (atributos.size()));
 		
-		return atrAleatorio; // debe retornar el nombre del atributo 
+		return atributos.get(atrAleatorio).getNombre(); // debe retornar el nombre del atributo 
 	
 	}
 

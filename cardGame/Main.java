@@ -23,9 +23,9 @@ public class Main {
 		
 		 Mazo nuevoMazo = armarMazo("./superheroes.json");
 		 Estrategia e1 = new Timbero();
-		 Estrategia e2 = new Obstinado(2);
+		 Estrategia e2 = new Obstinado("fuerza");
 	     Estrategia e3 = new Ambicioso();
-	     Jugador j1 = new Jugador("Juan", e3);
+	     Jugador j1 = new Jugador("Juan", e1);
 	     Jugador j2 = new Jugador("Maria", e2);
 
 	     Juego juego = new Juego(5);

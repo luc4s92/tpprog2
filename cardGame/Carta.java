@@ -34,8 +34,18 @@ public class Carta {
 		return aux;
 	}
 	
-	public Atributo getAtributo(int atributo) {
-		return atributos.get(atributo); //aca hacer el efecto de la pocion 
+	public Atributo getAtributo(String atributo) {
+		
+		for(int i= 0; i < atributos.size(); i++) {
+			if(atributos.get(i).getNombre().equals(atributo)) 
+				return atributos.get(i);
+			
+		}
+		
+		
+		
+		
+		return null; //aca hacer el efecto de la pocion 
 	}
 	
 	public int getCantAtr() {
@@ -67,7 +77,7 @@ public class Carta {
 			return true;
 	}
 
-	public int getAtrConPocion(int atr){
+	public int getAtrConPocion(String atr){
 		Atributo atri = new Atributo();
 		atri = this.getAtributo(atr);
 

@@ -7,7 +7,7 @@ public abstract class Estrategia {
 	
 	
 	
-	public abstract int modoJuego(ArrayList<Atributo> atributos);
+	public abstract String modoJuego(ArrayList<Atributo> atributos);
 	
 	
 	

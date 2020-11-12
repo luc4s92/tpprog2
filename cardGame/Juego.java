@@ -43,7 +43,7 @@ public class Juego {
         }
     }
 
-    public boolean getGanador(Jugador j1, Jugador j2, int i, int atr) {
+    public boolean getGanador(Jugador j1, Jugador j2, int i, String atr) {
         boolean resultado = true;
 
         if (!j1.getMazoJ().getCarta(i).tienePocima() && !j2.getMazoJ().getCarta(i).tienePocima()) {
@@ -84,7 +84,7 @@ public class Juego {
     }
 
 
-    public void imprimir(Jugador ganador, Jugador perdedor, int i, int atr) {
+    public void imprimir(Jugador ganador, Jugador perdedor, int i, String atr) {
 
 
         if (ganador.getMazoJ().getCarta(i).tienePocima() && perdedor.getMazoJ().getCarta(i).tienePocima()) {
@@ -126,7 +126,7 @@ public class Juego {
         ganador.getMazoJ().agregarCarta(perdedor.getMazoJ().getCarta(i)); // forma interna
         perdedor.getMazoJ().eliminarCarta(); // metodo que pase una posicion y remueva en el mazo
     }
-    public int getAtrAJugar(Jugador j1, Jugador j2, int i, boolean ganador){
+    public String getAtrAJugar(Jugador j1, Jugador j2, int i, boolean ganador){
         if(ganador){
             return j1.getEstrategia().modoJuego(j1.getMazoJ().getCarta(i).getAtributos());
         }
@@ -138,7 +138,7 @@ public class Juego {
     public void jugar(Jugador j1, Jugador j2){
         int turno = 1;
         int i = 0;
-        int atr = 0;
+        String atr = " ";
         boolean ganador = true;
         while( i < rondas && ( j1.getMazoJ().getCantCartas()!= 0) && ( j2.getMazoJ().getCantCartas())!= 0){
 

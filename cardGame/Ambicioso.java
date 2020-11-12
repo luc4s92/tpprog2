@@ -7,10 +7,10 @@ public class Ambicioso extends Estrategia {
 	
 
 	@Override
-	public int modoJuego(ArrayList<Atributo> atributos) {
+	public String modoJuego(ArrayList<Atributo> atributos) {
 
 
-
+		String atrMayor = " ";
 		int maxValor = 0;
 		int posMayor = 0;
 
@@ -20,14 +20,14 @@ public class Ambicioso extends Estrategia {
 			if (  maxValor < atributos.get(i).getValor()) {
 				posMayor = i;
 				maxValor = atributos.get(i).getValor();
-
+				atrMayor = atributos.get(i).getNombre();
 			}
 
 
 		}
 		
 
-		return posMayor; //debe retornar el string (nombre) del atributo
+		return atrMayor; //debe retornar el string (nombre) del atributo
 	}
 
 }
