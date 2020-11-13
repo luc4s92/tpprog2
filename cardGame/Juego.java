@@ -44,10 +44,9 @@ public class Juego {
     }
 
     public boolean getGanador(Jugador j1, Jugador j2, int i, String atr) {
-        boolean resultado = true;
+    	boolean resultado = true;
 
         if (!j1.getMazoJ().getCarta(i).tienePocima() && !j2.getMazoJ().getCarta(i).tienePocima()) {
-
             if (j1.getMazoJ().getCarta(i).getAtributo(atr).getValor() > j2.getMazoJ().getCarta(i)
                     .getAtributo(atr).getValor()) {
                 resultado = true;
@@ -87,7 +86,7 @@ public class Juego {
     public void imprimir(Jugador ganador, Jugador perdedor, int i, String atr) {
 
 
-        if (ganador.getMazoJ().getCarta(i).tienePocima() && perdedor.getMazoJ().getCarta(i).tienePocima()) {
+        if (ganador.getMazoJ().getCarta(i).tienePocima() && perdedor.getMazoJ().getCarta(i).tienePocima()) { //si los dos tienen pocima
             System.out.println("El jugador " + ganador.getNombre() + " selecciona competir por el atributo " +
                     ganador.getMazoJ().getCarta(i).getAtributo(atr));
 
@@ -97,21 +96,21 @@ public class Juego {
                     " se aplico pocima " + perdedor.getMazoJ().getCarta(i).getPocima() + " valor resultante " + perdedor.getMazoJ().getCarta(i).getAtrConPocion(atr));
 
         } else {
-            if (ganador.getMazoJ().getCarta(i).tienePocima()) {
+            if (ganador.getMazoJ().getCarta(i).tienePocima()) { //el ganador tiene pocima el perdedor no
                 System.out.println("El jugador " + ganador.getNombre() + " selecciona competir por el atributo " +
                         ganador.getMazoJ().getCarta(i).getAtributo(atr));
                 System.out.println("La carta de " + ganador.getNombre() + " es " + ganador.getMazoJ().getCarta(i).getNombreCarta() + " con " + ganador.getMazoJ().getCarta(i).getAtributo(atr) +
                         " se aplico pocima " + ganador.getMazoJ().getCarta(i).getPocima() + " valor resultante " + ganador.getMazoJ().getCarta(i).getAtrConPocion(atr));
                 System.out.println("La carta de " + perdedor.getNombre() + " es " + perdedor.getMazoJ().getCarta(i).getNombreCarta() + " con " + perdedor.getMazoJ().getCarta(i).getAtributo(atr));
             } else {
-                if (perdedor.getMazoJ().getCarta(i).tienePocima()) {
+                if (perdedor.getMazoJ().getCarta(i).tienePocima()) { // el ganador no tiene pocima, el perdedor si
                     System.out.println("El jugador " + ganador.getNombre() + " selecciona competir por el atributo " + ganador.getMazoJ().getCarta(i).getAtributo(atr));
                     System.out.println("La carta de " + ganador.getNombre() + " es " + ganador.getMazoJ().getCarta(i).getNombreCarta() + " con " + ganador.getMazoJ().getCarta(i).getAtributo(atr));
                     System.out.println("La carta de " + perdedor.getNombre() + " es " + perdedor.getMazoJ().getCarta(i).getNombreCarta() + " con " + perdedor.getMazoJ().getCarta(i).getAtributo(atr) +
                             " se aplico pocima " + perdedor.getMazoJ().getCarta(i).getPocima() + " valor resultante " + perdedor.getMazoJ().getCarta(i).getAtrConPocion(atr));
                 } else {
 
-                    System.out.println(
+                    System.out.println( //ninguno tiene pocima
                             "El jugador " + ganador.getNombre() + " selecciona competir por el atributo " + ganador.getMazoJ().getCarta(i).getAtributo(atr));
                     System.out.println("La carta de " + ganador.getNombre() + " es " + ganador.getMazoJ().getCarta(i).getNombreCarta() + " con " + ganador.getMazoJ().getCarta(i).getAtributo(atr));
                     System.out.println("La carta de " + perdedor.getNombre() + " es " + perdedor.getMazoJ().getCarta(i).getNombreCarta() + " con " + perdedor.getMazoJ().getCarta(i).getAtributo(atr));
@@ -123,9 +122,16 @@ public class Juego {
         }
     }
     private void ganadorSeQuedaCarta(Jugador ganador, Jugador perdedor, int i) {
+    	//le pasa la carta al ganador y el ganador pasa su 1ra carta al final
+    	
+    	Carta aux = new Carta();
+    	aux = ganador.getMazoJ().getCarta(i);
         ganador.getMazoJ().agregarCarta(perdedor.getMazoJ().getCarta(i)); // forma interna
-        perdedor.getMazoJ().eliminarCarta(); // metodo que pase una posicion y remueva en el mazo
+        perdedor.getMazoJ().eliminarCarta();
+        ganador.getMazoJ().agregarCarta(aux);
+        ganador.getMazoJ().eliminarCarta();// metodo que pase una posicion y remueva en el mazo
     }
+    
     public String getAtrAJugar(Jugador j1, Jugador j2, int i, boolean ganador){
         if(ganador){
             return j1.getEstrategia().modoJuego(j1.getMazoJ().getCarta(i).getAtributos());
@@ -135,63 +141,63 @@ public class Juego {
         }
     }
 
+    public void imprimirGanadorRonda(Jugador ganadorRonda, Jugador perdedorRonda) {
+    	 System.out.println("Gana la ronda "+ ganadorRonda.getNombre()+ " y queda con " + ganadorRonda.getMazoJ().getCantCartas() + " (" +
+    			 perdedorRonda.getNombre()+ " posee ahora " + perdedorRonda.getMazoJ().getCantCartas() + " cartas )");
+    }
+    
+    public void imprimirGanadorJuego(Jugador j1, Jugador j2) {
+    	if(j1.getMazoJ().getCantCartas() > j2.getMazoJ().getCantCartas()) {
+    		System.out.println("El ganador del juego es : " + j1.getNombre() + " con: " + j1.getMazoJ().getCantCartas() + " cartas"  );
+    		
+    	}
+    	else {
+    		System.out.println("El ganador del juego es : " + j2.getNombre() + " con: " + j2.getMazoJ().getCantCartas() + " cartas"  );
+    	}
+    }
+    
     public void jugar(Jugador j1, Jugador j2){
+    	int primera = 0;
         int turno = 1;
-        int i = 0;
         String atr = " ";
         boolean ganador = true;
-        while( i < rondas && ( j1.getMazoJ().getCantCartas()!= 0) && ( j2.getMazoJ().getCantCartas())!= 0){
+        while( turno <= rondas && ( j1.tieneCartas() &&  j2.tieneCartas())){
 
-            atr = getAtrAJugar(j1,j2,i,ganador);
+            atr = getAtrAJugar(j1,j2,primera,ganador);
 
-            if (j1.getMazoJ().getCarta(i).getAtributo(atr).equals(j2.getMazoJ().getCarta(i).getAtributo(atr))){
-
+            if (j1.getMazoJ().getCarta(primera).getAtributo(atr).equals(j2.getMazoJ().getCarta(primera).getAtributo(atr))){
 
                 if (ganador == true){
                     System.out.println("--------- Ronda " + turno + "--------");
-                    imprimir(j1,j2,i,atr);
-                    ganador =  getGanador(j1,j2,i,atr);
+                    imprimir(j1,j2,primera,atr);
+                    ganador =  getGanador(j1,j2,primera,atr);
                         if (ganador == true){
-                                ganadorSeQuedaCarta(j1, j2, i);
-                                System.out.println("Gana la ronda "+ j1.getNombre()+ " y queda con " + j1.getMazoJ().getCantCartas() + " (" +
-                                j2.getNombre()+ " posee ahora " + j2.getMazoJ().getCantCartas() + " cartas )");
-
-
+                                ganadorSeQuedaCarta(j1, j2, primera);                             
+                                imprimirGanadorRonda(j1,j2);
                         }
                         else {
-                                ganadorSeQuedaCarta(j2, j1, i);
-                                System.out.println("Gana la ronda "+ j2.getNombre()+ " y queda con " + j2.getMazoJ().getCantCartas() + " (" +
-                                        j1.getNombre()+ " posee ahora " + j1.getMazoJ().getCantCartas() + " cartas )");
-
-
-                        }
-                 turno++;
+                                ganadorSeQuedaCarta(j2, j1, primera);                              
+                                imprimirGanadorRonda(j2,j1);
+                        }                
                 }
                 else {
                     System.out.println("--------- Ronda " + turno + "--------");
-                    imprimir(j2,j1,i,atr);
-                    ganador =  getGanador(j1,j2,i,atr);
+                    imprimir(j2,j1,primera,atr);
+                    ganador =  getGanador(j1,j2,primera,atr);
                     if (ganador == true){
-
-                                ganadorSeQuedaCarta(j1, j2, i);
-                                System.out.println("Gana la ronda "+ j1.getNombre()+ " y queda con " + j1.getMazoJ().getCantCartas() + " (" +
-                                j2.getNombre()+ " posee ahora " + j2.getMazoJ().getCantCartas() + " cartas )");
-
-
+                                ganadorSeQuedaCarta(j1, j2, primera);                             
+                                imprimirGanadorRonda(j1,j2);
                     }
                     else{
-                        ganadorSeQuedaCarta(j2, j1, i);
-                        System.out.println("Gana la ronda "+ j2.getNombre()+ " y queda con " + j2.getMazoJ().getCantCartas() + " (" +
-                                j1.getNombre()+ " posee ahora " + j1.getMazoJ().getCantCartas() + " cartas )");
-
-
-                    }
-                    turno ++;
+                        ganadorSeQuedaCarta(j2, j1, primera);                       
+                        imprimirGanadorRonda(j2,j1);
+                    }                    
                 }
-                i++;
+                turno ++;
             }
-
+           
         }
+         imprimirGanadorJuego(j1,j2);
     }
 
 

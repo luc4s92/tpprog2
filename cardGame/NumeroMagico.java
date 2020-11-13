@@ -1,20 +1,19 @@
 package cardGame;
 
-public class NumeroMagico extends Pocion{
+public class NumeroMagico extends Pocion {
 
-    private int nroMagic;
-
-    public  NumeroMagico(String nombre, int nroMagic){
-      super(nombre);
-      this.nroMagic = nroMagic;
+    private int nroMagico;
+    public NumeroMagico (String nombre, int nroMagico){
+        super(nombre);
+        this.nroMagico = nroMagico;
     }
 
-    public void setNroMagic(int nroMagic) {
-        this.nroMagic = nroMagic;
+    public void setValeCuatro(int nroMagico) {
+        this.nroMagico = nroMagico;
     }
 
     @Override
     public int efecto(Atributo atr) {
-        return this.nroMagic;
+        return  this.nroMagico;
     }
 }

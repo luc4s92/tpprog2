@@ -1,17 +1,17 @@
 package cardGame;
 
-public class PocimaSelectivaFuerza extends Pocion{
+public class PocimaSelectivaAtr extends Pocion{
 
-    private double incFuerza;
+    private double incAtr;
     private String nombreAtr;
-    public PocimaSelectivaFuerza(String nombre, double incFuerza, String nombreAtr){
+    public PocimaSelectivaAtr(String nombre, double incAtr, String nombreAtr){
         super(nombre);
-        this.incFuerza = incFuerza;
+        this.incAtr = incAtr;
         this.nombreAtr = nombreAtr;
     }
 
-    public void setIncFuerza(double incFuerza) {
-        this.incFuerza = incFuerza;
+    public void setIncFuerza(double incAtr) {
+        this.incAtr = incAtr;
     }
 
     public void setNombreAtr(String nombreAtr) {
@@ -23,7 +23,7 @@ public class PocimaSelectivaFuerza extends Pocion{
 
         if(atr.getNombre().equals(this.nombreAtr)){
             double auxAtr = atr.getValor();
-            auxAtr = auxAtr *this.incFuerza;
+            auxAtr = auxAtr *this.incAtr;
 
             return (int) (atr.getValor() + auxAtr);
         }

@@ -1,10 +1,10 @@
 package cardGame;
 
-public class Kriptonita extends Pocion{
+public class Reductora extends Pocion{
 
     private double decremento;
 
-    public Kriptonita(String nombre, double decremento){
+    public Reductora(String nombre, double decremento){
         super(nombre);
         this.decremento = decremento;
     }
