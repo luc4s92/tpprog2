@@ -23,13 +23,16 @@ public class PocimaCocktail extends Pocion{
 
     @Override
     public int efecto(Atributo atr) {
-
+    	Atributo atributo = new Atributo();
+    	atributo.setNombre(atr.getNombre());
+    	atributo.setValor(atr.getValor());
         double auxAtr = 0;
 
         for (Pocion pocion:pocimas){
-            auxAtr = pocion.efecto(atr);
+            auxAtr = pocion.efecto(atributo);
+            atributo.setValor((int) auxAtr);
         }
 
-        return (int) auxAtr;
+        return atributo.getValor();
     }
 }

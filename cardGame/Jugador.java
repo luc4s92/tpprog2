@@ -40,4 +40,17 @@ public class Jugador {
 	public String getNombre() {
 		return nombre;
 	}
+	
+	public String getAtrAJugar() {
+		
+		if(this.tieneCartas()) {
+			Carta carta = mazoJ.getPrimeraCarta();
+			String atrAJugar = this.getEstrategia().modoJuego(carta.getAtributos());
+			return atrAJugar;
+		}
+		return null;
+	}
+	
+	
+	
 }

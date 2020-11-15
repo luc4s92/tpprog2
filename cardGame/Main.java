@@ -23,13 +23,13 @@ public class Main {
 		
 		 Mazo nuevoMazo = armarMazo("./superheroes.json");
 		 Estrategia e1 = new Timbero();
-		 Estrategia e2 = new Obstinado("fuerza");
+		 Estrategia e2 = new Obstinado("peso");
 	     Estrategia e3 = new Ambicioso();
-	     Jugador j1 = new Jugador("Juan", e1);
+	     Jugador j1 = new Jugador("Juan", e3);
 	     Jugador j2 = new Jugador("Maria", e2);
 
+	    
 	     Juego juego = new Juego(5);
-
 	     //creacion de las pociones
 		 Pocion fortalecedora = new Fortalecedora("Fortalecedora",0.2);
 		 Pocion fortalecedoraPlus = new Fortalecedora("Fortalecedora Plus",0.5);
@@ -43,15 +43,20 @@ public class Main {
 		 Pocion selectFuerza = new PocimaSelectivaAtr("Pocima selectiva Fuerza", 0.35,"fuerza");
 		 Pocion selectPeso = new PocimaSelectivaAtr("Pocima selectiva Peso", 0.43,"peso");
 		
-		// PocimaCocktail cocktail = new PocimaCocktail("cocktail");
+		 PocimaCocktail cocktail = new PocimaCocktail("cocktail");
 		// PocimaCocktail cocktail2 = new PocimaCocktail("cocktail");
 
 		// cocktail2.addPocimas(fortalecedora2);
 		// cocktail2.addPocimas(selectPeso);
-	//	 cocktail.addPocimas(fortalecedora);
-	//	 cocktail.addPocimas(kryptonita);
-	//	 cocktail.addPocimas(quieroValeCinco);
-
+		 cocktail.addPocimas(fortalecedora);
+		 cocktail.addPocimas(kryptonita);
+		 cocktail.addPocimas(selectFuerza);
+	//	 Atributo a1 = new Atributo();
+	//	 a1.setNombre("fuerza");
+	//	 a1.setValor(1000);
+	//	 System.out.println(cocktail.efecto(a1));
+		 
+		 
 		 //armando arreglo de pociones
 		System.out.println("Pocimas");
 		ArrayList<Pocion> pocimas = new ArrayList<>();
@@ -63,6 +68,7 @@ public class Main {
 		pocimas.add(numeroMagico);
 		pocimas.add(selectFuerza);
 		pocimas.add(selectPeso);
+		pocimas.add(cocktail);
 	//	pocimas.add(fortalecedora2);
 	//	pocimas.add(fortalecedoraPlus2);
 	//	pocimas.add(kryptonita2);
@@ -81,15 +87,11 @@ public class Main {
 
 	     
 
-		juego.repartirMazo(j1,j2,nuevoMazo,pocimas);
-
+	
+		juego.repartirMazo(j1, j2, nuevoMazo, pocimas);
 		System.out.println(j1.getMazoJ().getCartas());
 		System.out.println(j2.getMazoJ().getCartas());
-
-
-		juego.jugar(j1,j2);
-
-
+		juego.jugar(j1, j2);
 	}
 	
 	

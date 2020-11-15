@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Mazo {
-	ArrayList<Carta> cartas;
+	private	ArrayList<Carta> cartas;
 
 	public Mazo() {
 		this.cartas = new ArrayList();
@@ -55,10 +55,18 @@ public class Mazo {
 		return atrAleatorio;
 	}
 
+	//metodo para mezclar cartas
 
-
+	public void mezclarCartas() {
+		Collections.shuffle(cartas);
+	}
+	
 	public Carta getCarta(int carta) {
 		return cartas.get(carta);
 	}
-
+	
+	public Carta getPrimeraCarta() {
+		return cartas.get(0);
+	}
+	
 }

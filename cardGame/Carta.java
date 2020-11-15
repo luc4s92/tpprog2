@@ -3,9 +3,9 @@ package cardGame;
 import java.util.ArrayList;
 
 public class Carta {
-	String nombre;
-	ArrayList<Atributo> atributos;
-	Pocion pocima;
+	private String nombre;
+	private  ArrayList<Atributo> atributos;
+	private Pocion pocima;
 	
 	public Carta() {
 		atributos = new ArrayList();
@@ -79,10 +79,37 @@ public class Carta {
 
 	public int getAtrConPocion(String atr){
 		Atributo atri = new Atributo();
+		
 		atri = this.getAtributo(atr);
+		if(this.tienePocima()) {
+			return this.pocima.efecto(atri);
+		}
 
-		return this.pocima.efecto(atri);
+		return atri.getValor();
 	}
+	
+	
+	public String toString(String atributoJugable) {
+        String resultado = "";
+        resultado = " es " + this.getNombreCarta() + " con " + atributoJugable + " " + this.getAtributo(atributoJugable).getValor();
+        if (this.tienePocima()) {
+            resultado = resultado + ", se aplicó pocima " + this.getPocima().getNombre() + " valor resultante " + this.getAtrConPocion(atributoJugable);
+        }
+        return resultado;
+    }
+
+	
+	//comparacion entre una carta y otra
+	
+	public int compareTo(Carta carta, String nombreAtr) {
+		Integer atrValor1 = this.getAtrConPocion(nombreAtr);
+		Integer atrValor2 = carta.getAtrConPocion(nombreAtr);
+		return atrValor1.compareTo(atrValor2);
+	}
+	
+	
+	
+	
 
 	@Override
 	

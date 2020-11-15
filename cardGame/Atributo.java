@@ -1,8 +1,8 @@
 package cardGame;
 
-public class Atributo {
-	String nombre;
-	int valor;
+public class Atributo implements Comparable<Atributo>{
+	private String nombre;
+	private int valor;
 	
 	
 	public Atributo() {
@@ -46,5 +46,13 @@ public class Atributo {
 	@Override
 	public String toString() {
 		return this.nombre + ": " + this.valor + ";";
+	}
+
+
+	@Override
+	public int compareTo(Atributo atr) {
+		Integer atr1 = this.getValor();
+		Integer atr2 = atr.getValor();
+		return atr1.compareTo(atr2);
 	}
 }
