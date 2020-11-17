@@ -3,7 +3,7 @@ package cardGame;
 public abstract class Pocion {
 private String nombre;
 
-	public Pocion(String nombre) {
+	 Pocion(String nombre) {
 		this.nombre = nombre;
 		
 	}

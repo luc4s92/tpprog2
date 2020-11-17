@@ -89,7 +89,7 @@ public class Carta {
 	}
 	
 	
-	public String toString(String atributoJugable) {
+	public String imprimirCartaJuego(String atributoJugable) {
         String resultado = "";
         resultado = " es " + this.getNombreCarta() + " con " + atributoJugable + " " + this.getAtributo(atributoJugable).getValor();
         if (this.tienePocima()) {
@@ -101,7 +101,7 @@ public class Carta {
 	
 	//comparacion entre una carta y otra
 	
-	public int compareTo(Carta carta, String nombreAtr) {
+	public int compararCartas(Carta carta, String nombreAtr) {
 		Integer atrValor1 = this.getAtrConPocion(nombreAtr);
 		Integer atrValor2 = carta.getAtrConPocion(nombreAtr);
 		return atrValor1.compareTo(atrValor2);

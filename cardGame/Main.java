@@ -21,9 +21,9 @@ public class Main {
 		
 		
 		
-		 Mazo nuevoMazo = armarMazo("./superheroes.json");
+		 Mazo nuevoMazo = armarMazo("./autos.json");
 		 Estrategia e1 = new Timbero();
-		 Estrategia e2 = new Obstinado("peso");
+		 Estrategia e2 = new Obstinado("Cilindros");
 	     Estrategia e3 = new Ambicioso();
 	     Jugador j1 = new Jugador("Juan", e3);
 	     Jugador j2 = new Jugador("Maria", e2);
@@ -40,17 +40,18 @@ public class Main {
 		 Pocion quieroValeCuatro = new NumeroMagico("Quiero Vale Cuatro", 4);
 		 Pocion numeroMagico = new NumeroMagico("Numero Magico", 23);
 	
-		 Pocion selectFuerza = new PocimaSelectivaAtr("Pocima selectiva Fuerza", 0.35,"fuerza");
-		 Pocion selectPeso = new PocimaSelectivaAtr("Pocima selectiva Peso", 0.43,"peso");
-		
+		// Pocion selectFuerza = new PocimaSelectivaAtr("Pocima selectiva Fuerza", 0.35,"fuerza");
+		 Pocion selectCilindros = new PocimaSelectivaAtr("Pocima selectiva cilindros", 0.35,"Cilindros");
+		// Pocion selectPeso = new PocimaSelectivaAtr("Pocima selectiva Peso", 0.43,"peso");
+		 Pocion selectRpm = new PocimaSelectivaAtr("Pocima selectiva Rpm", 0.43,"RPM");
 		 PocimaCocktail cocktail = new PocimaCocktail("cocktail");
 		// PocimaCocktail cocktail2 = new PocimaCocktail("cocktail");
 
 		// cocktail2.addPocimas(fortalecedora2);
 		// cocktail2.addPocimas(selectPeso);
-		 cocktail.addPocimas(fortalecedora);
-		 cocktail.addPocimas(kryptonita);
-		 cocktail.addPocimas(selectFuerza);
+	//	 cocktail.addPocimas(fortalecedora);
+	//	 cocktail.addPocimas(kryptonita);
+	//	 cocktail.addPocimas(selectFuerza);
 	//	 Atributo a1 = new Atributo();
 	//	 a1.setNombre("fuerza");
 	//	 a1.setValor(1000);
@@ -66,9 +67,9 @@ public class Main {
 		pocimas.add(reductorDePlomo);
 		pocimas.add(quieroValeCuatro);
 		pocimas.add(numeroMagico);
-		pocimas.add(selectFuerza);
-		pocimas.add(selectPeso);
-		pocimas.add(cocktail);
+		pocimas.add(selectCilindros);
+		pocimas.add(selectRpm);
+	//	pocimas.add(cocktail);
 	//	pocimas.add(fortalecedora2);
 	//	pocimas.add(fortalecedoraPlus2);
 	//	pocimas.add(kryptonita2);
@@ -86,8 +87,8 @@ public class Main {
 
 
 	     
-
-	
+	//	System.out.println(nuevoMazo.getCartas());
+	//	System.out.println(nuevoMazo.getCantCartas());
 		juego.repartirMazo(j1, j2, nuevoMazo, pocimas);
 		System.out.println(j1.getMazoJ().getCartas());
 		System.out.println(j2.getMazoJ().getCartas());

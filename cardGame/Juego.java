@@ -71,7 +71,7 @@ public class Juego {
 			 Carta cartaJ1 = j1.getMazoJ().getPrimeraCarta();
 			 Carta cartaJ2 = j2.getMazoJ().getPrimeraCarta();			 
 			 
-			 int resultadoRonda = cartaJ1.compareTo(cartaJ2, atrAJugar);
+			 int resultadoRonda = cartaJ1.compararCartas(cartaJ2, atrAJugar);
 			 
 			 if(resultadoRonda == 0) {
 				 pasarCartaAlFinal(j1);
@@ -102,8 +102,8 @@ public class Juego {
 	 public void imprimirRonda(Jugador jugadorConTurno, Jugador jGanador, String atr, Carta cartaJ1, Carta cartaJ2, int turno, Jugador j1, Jugador j2) {
 		 System.out.println("----------------- Ronda " + turno + "--------------------");
 		 System.out.println("El Jugador " + jugadorConTurno.getNombre() + " selecciona el atributo: " + atr );
-		 System.out.println("La carta de " + j1.getNombre() + cartaJ1.toString(atr));
-		 System.out.println("La carta de " + j2.getNombre() + cartaJ2.toString(atr));
+		 System.out.println("La carta de " + j1.getNombre() + cartaJ1.imprimirCartaJuego(atr));
+		 System.out.println("La carta de " + j2.getNombre() + cartaJ2.imprimirCartaJuego(atr));
 		 System.out.println("Gana la ronda : " + jGanador.getNombre());
 		 System.out.println(j1.getNombre()+ " posee ahora " + j1.getMazoJ().getCantCartas()+ " cartas y "+ j2.getNombre() + " posee ahora " +
 		  j2.getMazoJ().getCantCartas()+ " cartas." );
