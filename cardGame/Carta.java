@@ -40,10 +40,7 @@ public class Carta {
 			if(atributos.get(i).getNombre().equals(atributo)) 
 				return atributos.get(i);
 			
-		}
-		
-		
-		
+		}			
 		
 		return null; //aca hacer el efecto de la pocion 
 	}

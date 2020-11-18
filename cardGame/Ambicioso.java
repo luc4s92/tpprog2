@@ -12,13 +12,13 @@ public class Ambicioso extends Estrategia {
 
 		String atrMayor = " ";
 		int maxValor = 0;
-		int posMayor = 0;
+	
 
 
 		for(int i = 0; i < atributos.size();i++) {
 
 			if (  maxValor < atributos.get(i).getValor()) {
-				posMayor = i;
+				
 				maxValor = atributos.get(i).getValor();
 				atrMayor = atributos.get(i).getNombre();
 			}

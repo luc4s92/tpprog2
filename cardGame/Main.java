@@ -37,8 +37,8 @@ public class Main {
 		 Pocion kryptonita = new Reductora("Kryptonita", 0.25);
 		 Pocion reductorDePlomo = new Reductora("Reductor de plomo", 0.55);
 		
-		 Pocion quieroValeCuatro = new NumeroMagico("Quiero Vale Cuatro", 4);
-		 Pocion numeroMagico = new NumeroMagico("Numero Magico", 23);
+		 Pocion quieroValeCuatro = new ValorFijo("Quiero Vale Cuatro", 4);
+		 Pocion numeroMagico = new ValorFijo("Numero Magico", 23);
 	
 		// Pocion selectFuerza = new PocimaSelectivaAtr("Pocima selectiva Fuerza", 0.35,"fuerza");
 		 Pocion selectCilindros = new PocimaSelectivaAtr("Pocima selectiva cilindros", 0.35,"Cilindros");

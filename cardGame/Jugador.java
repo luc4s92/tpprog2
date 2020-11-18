@@ -51,6 +51,27 @@ public class Jugador {
 		return null;
 	}
 	
+	public Carta getPrimeraCartaJ() {
+		return getMazoJ().getPrimeraCarta();
+	}
 	
 	
+	public int CantCartasJ() {
+		return this.getMazoJ().getCantCartas();
+	}
+	
+	 public void pasarCartaAlFinal() { 
+		 Carta aux = new Carta();
+		 aux = this.getPrimeraCartaJ();
+		 this.getMazoJ().agregarCarta(aux); 
+		 this.getMazoJ().eliminarCarta();
+	 }
+	 
+	 public void agregarCartaGanada(Carta c) {
+		 this.getMazoJ().agregarCarta(c);
+	 }
+	 
+	 public void perdioCarta() {
+		 this.getMazoJ().eliminarCarta();
+	 }
 }

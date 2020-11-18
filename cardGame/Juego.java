@@ -16,6 +16,7 @@ public class Juego {
 	        ArrayList<Carta> cartas = m.getCartas();
 	        
 	        for (int i = 0; i < cartas.size(); i++) {
+	        	// mover new carta
 	            if ((i % 2) == 0) {
 	                if (i < pocimas.size()) {
 	                	
@@ -45,17 +46,11 @@ public class Juego {
 	    }
 	 
 	 
-	 public void pasarCartaAlFinal(Jugador j) {
-		 Carta aux = new Carta();
-		 aux = j.getMazoJ().getPrimeraCarta();
-		 j.getMazoJ().agregarCarta(aux);
-		 j.getMazoJ().eliminarCarta();
-	 }
-	 
+	
 	 private void ganadorSeQuedaCarta(Jugador ganador, Jugador perdedor) {   		    		    	
-	        ganador.getMazoJ().agregarCarta(perdedor.getMazoJ().getPrimeraCarta()); // forma interna
-	        perdedor.getMazoJ().eliminarCarta();
-	        pasarCartaAlFinal(ganador);
+	        ganador.agregarCartaGanada(perdedor.getPrimeraCartaJ()); // forma interna
+	        perdedor.perdioCarta();
+	        ganador.pasarCartaAlFinal(); 
 	    }
 	 
 	 public void jugar(Jugador j1, Jugador j2) {
@@ -63,19 +58,18 @@ public class Juego {
 		 Jugador jugadorConTurno = j1;
 		 Jugador jugadorGanador ;
 		 int ronda = 1;
-		 String jugador1 = j1.getNombre();
-		 String jugador2 = j2.getNombre();
+		
 		 while(ronda <= this.rondas && j1.tieneCartas() && j2.tieneCartas()) {
 			 String atrAJugar = jugadorConTurno.getAtrAJugar();
 			 
-			 Carta cartaJ1 = j1.getMazoJ().getPrimeraCarta();
-			 Carta cartaJ2 = j2.getMazoJ().getPrimeraCarta();			 
+			 Carta cartaJ1 = j1.getPrimeraCartaJ();
+			 Carta cartaJ2 = j2.getPrimeraCartaJ();			 
 			 
 			 int resultadoRonda = cartaJ1.compararCartas(cartaJ2, atrAJugar);
 			 
 			 if(resultadoRonda == 0) {
-				 pasarCartaAlFinal(j1);
-				 pasarCartaAlFinal(j2);
+				 j1.pasarCartaAlFinal();
+				 j2.pasarCartaAlFinal();;
 				 jugadorGanador = jugadorConTurno;
 			 }else
 				 if(resultadoRonda == 1) {
@@ -105,19 +99,19 @@ public class Juego {
 		 System.out.println("La carta de " + j1.getNombre() + cartaJ1.imprimirCartaJuego(atr));
 		 System.out.println("La carta de " + j2.getNombre() + cartaJ2.imprimirCartaJuego(atr));
 		 System.out.println("Gana la ronda : " + jGanador.getNombre());
-		 System.out.println(j1.getNombre()+ " posee ahora " + j1.getMazoJ().getCantCartas()+ " cartas y "+ j2.getNombre() + " posee ahora " +
-		  j2.getMazoJ().getCantCartas()+ " cartas." );
+		 System.out.println(j1.getNombre()+ " posee ahora " + j1.CantCartasJ()+ " cartas y "+ j2.getNombre() + " posee ahora " +
+		  j2.CantCartasJ()+ " cartas." );
 	 }
 	 
 	 public void imprimirGanadorJuego(Jugador j1, Jugador j2) {
 		 
 		 System.out.println("--------------Fin del Juego---------------");
-	    	if(j1.getMazoJ().getCantCartas() > j2.getMazoJ().getCantCartas()) {
-	    		System.out.println("El ganador del juego es : " + j1.getNombre() + " con: " + j1.getMazoJ().getCantCartas() + " cartas"  );
+	    	if(j1.CantCartasJ() > j2.CantCartasJ()) { //metodo del jugador
+	    		System.out.println("El ganador del juego es : " + j1.getNombre() + " con: " + j1.CantCartasJ() + " cartas"  );
 	    		
 	    	}
 	    	else {
-	    		System.out.println("El ganador del juego es : " + j2.getNombre() + " con: " + j2.getMazoJ().getCantCartas() + " cartas"  );
+	    		System.out.println("El ganador del juego es : " + j2.getNombre() + " con: " + j2.CantCartasJ() + " cartas"  );
 	    	}
 	    }
 	 

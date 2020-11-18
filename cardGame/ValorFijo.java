@@ -1,9 +1,9 @@
 package cardGame;
 
-public class NumeroMagico extends Pocion {
+public class ValorFijo extends Pocion {
 
     private int nroMagico;
-    public NumeroMagico (String nombre, int nroMagico){
+    public ValorFijo (String nombre, int nroMagico){
         super(nombre);
         this.nroMagico = nroMagico;
     }
