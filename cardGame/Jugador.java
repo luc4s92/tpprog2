@@ -44,7 +44,7 @@ public class Jugador {
 	public String getAtrAJugar() {
 		
 		if(this.tieneCartas()) {
-			Carta carta = mazoJ.getPrimeraCarta();
+			Carta carta = getPrimeraCartaJ();
 			String atrAJugar = this.getEstrategia().modoJuego(carta.getAtributos());
 			return atrAJugar;
 		}
@@ -52,7 +52,7 @@ public class Jugador {
 	}
 	
 	public Carta getPrimeraCartaJ() {
-		return getMazoJ().getPrimeraCarta();
+		return this.getMazoJ().getCarta(0);
 	}
 	
 	
@@ -67,7 +67,7 @@ public class Jugador {
 		 this.getMazoJ().eliminarCarta();
 	 }
 	 
-	 public void agregarCartaGanada(Carta c) {
+	 public void agregarCartaJ(Carta c) {
 		 this.getMazoJ().agregarCarta(c);
 	 }
 	 

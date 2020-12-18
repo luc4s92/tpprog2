@@ -65,8 +65,6 @@ public class Mazo {
 		return cartas.get(carta);
 	}
 	
-	public Carta getPrimeraCarta() {
-		return cartas.get(0);
-	}
+	
 	
 }

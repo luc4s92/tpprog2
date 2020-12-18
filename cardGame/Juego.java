@@ -23,10 +23,10 @@ public class Juego {
 	                	Carta auxCarta = new Carta();
 	                    auxCarta = cartas.get(i);
 	                    auxCarta.agregarPocima(pocimas.get(i));
-	                    j1.getMazoJ().agregarCarta(auxCarta);
+	                    j1.agregarCartaJ(auxCarta);
 	                    
 	                } else {
-	                    j1.getMazoJ().agregarCarta(cartas.get(i));
+	                    j1.agregarCartaJ(cartas.get(i));
 	                }
 	            } else {
 	            	
@@ -35,10 +35,10 @@ public class Juego {
 	                	Carta auxCarta = new Carta();
 	                    auxCarta = cartas.get(i);
 	                    auxCarta.agregarPocima(pocimas.get(i));
-	                    j2.getMazoJ().agregarCarta(auxCarta);
+	                    j2.agregarCartaJ(auxCarta);
 	                    
 	                } else {
-	                    j2.getMazoJ().agregarCarta(cartas.get(i));
+	                    j2.agregarCartaJ(cartas.get(i));
 	                }
 	            }
 
@@ -48,7 +48,7 @@ public class Juego {
 	 
 	
 	 private void ganadorSeQuedaCarta(Jugador ganador, Jugador perdedor) {   		    		    	
-	        ganador.agregarCartaGanada(perdedor.getPrimeraCartaJ()); // forma interna
+	        ganador.agregarCartaJ(perdedor.getPrimeraCartaJ()); // forma interna
 	        perdedor.perdioCarta();
 	        ganador.pasarCartaAlFinal(); 
 	    }
